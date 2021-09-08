@@ -1,0 +1,9 @@
+﻿  fukbmp.cpp
+C:\Users\asus\Desktop\MyGame\fukbmp\fukbmp\fukbmp\fukbmp.cpp(28,20): warning C4018: '<': signed/unsigned mismatch
+C:\Users\asus\Desktop\MyGame\fukbmp\fukbmp\fukbmp\fukbmp.cpp(30,21): warning C4018: '<': signed/unsigned mismatch
+C:\Users\asus\Desktop\MyGame\fukbmp\fukbmp\fukbmp\fukbmp.cpp(17,2): warning C4996: 'wcscpy': This function or variable may be unsafe. Consider using wcscpy_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+C:\Users\asus\Desktop\MyGame\fukbmp\fukbmp\fukbmp\fukbmp.cpp(18,2): warning C4996: 'wcscat': This function or variable may be unsafe. Consider using wcscat_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+C:\Users\asus\Desktop\MyGame\fukbmp\fukbmp\fukbmp\fukbmp.cpp(20,2): warning C4996: 'wcscpy': This function or variable may be unsafe. Consider using wcscpy_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+C:\Users\asus\Desktop\MyGame\fukbmp\fukbmp\fukbmp\fukbmp.cpp(21,2): warning C4996: 'wcscat': This function or variable may be unsafe. Consider using wcscat_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+C:\Users\asus\Desktop\MyGame\fukbmp\fukbmp\fukbmp\fukbmp.cpp(23,17): warning C4996: '_wfopen': This function or variable may be unsafe. Consider using _wfopen_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+  fukbmp.vcxproj -> C:\Users\asus\Desktop\MyGame\fukbmp\fukbmp\Debug\fukbmp.exe
