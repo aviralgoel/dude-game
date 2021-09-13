@@ -31,6 +31,7 @@ Game::Game( MainWindow& wnd )
 	yDist(0,570)
 {
 	std::uniform_int_distribution<int> vDist(-1, 1);
+
 	for (int i = 0; i < size; i++)
 	{
 		poos[i].Init(xDist(rng), yDist(rng), vDist(rng), vDist(rng));
@@ -64,6 +65,7 @@ void Game::UpdateModel()
 		{
 			goal.isTouched = false;
 			goal.Init(xDist(rng), yDist(rng));
+			currentProgress += 5;
 		}
 
 		
@@ -28423,6 +28425,18 @@ void Game::DrawTitleScreen( int x,int y )
 	gfx.PutPixel( 149 + x,174 + y,208,34,34 );
 }
 
+void Game::DrawProgressBar()
+{	
+	
+	for(int i = 0; i < currentProgress; i++)
+	{
+		for (int j = 0; j < 10; j++)
+		{
+			gfx.PutPixel(i, j, 0, 0, 255);
+		}
+	}
+}
+
 void Game::ComposeFrame()
 {
 	if( !isStarted )
@@ -28441,10 +28455,11 @@ void Game::ComposeFrame()
 		{
 			DrawGameOver( 358,268 );
 		}
-		
-		goal.Draw(gfx);
+		std::uniform_int_distribution<int> colorVal(0, 255);
+		goal.Draw(gfx, colorVal(rng),colorVal(rng),colorVal(rng) );
 		
 		dude.Draw( gfx );
+		DrawProgressBar();
 
 		for (int i = 0; i < size; i++)
 		{

@@ -34,6 +34,7 @@ public:
 	Game( const Game& ) = delete;
 	Game& operator=( const Game& ) = delete;
 	void Go();
+	void DrawProgressBar();
 private:
 	void ComposeFrame();
 	void UpdateModel();
@@ -41,6 +42,7 @@ private:
 	/*  User Functions              */
 	void DrawGameOver( int x,int y );
 	void DrawTitleScreen( int x,int y );
+	
 	/********************************/
 private:
 	MainWindow& wnd;
@@ -51,10 +53,13 @@ private:
 	std::mt19937 rng;
 	std::uniform_int_distribution<int> xDist;
 	std::uniform_int_distribution<int> yDist;
+
 	static constexpr int size = 9;
 	Dude dude;
 	Poo poos[size];
 	bool isStarted = false;
 	Goal goal;
+	int fullProgress = 100;
+	int currentProgress = 0;
 	/********************************/
 };

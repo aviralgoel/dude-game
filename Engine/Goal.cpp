@@ -11,13 +11,13 @@ void Goal::Init(int in_x, int in_y)
 	y = in_y;
 }
 
-void Goal::Draw(Graphics& gfx) const
+void Goal::Draw(Graphics& gfx, int r, int b, int g) const
 {
 	for (int i = 0+x; i < height+x; i++)
 	{
 		for (int j = 0+y; j < width+y; j++)
 		{
-			gfx.PutPixel(i, j, 255, 255, 255);
+			gfx.PutPixel(i, j, r, b, g);
 		}
 	}
 }
@@ -35,6 +35,7 @@ void Goal::ProcessConsumption(const Dude& dude)
 		dude.GetY() <= goalbottom)
 	{
 		isTouched = true;
+		
 	}
 }
 
