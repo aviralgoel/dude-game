@@ -25,6 +25,7 @@
 #include "Graphics.h"
 #include "Poo.h"
 #include "Dude.h"
+#include "Goal.h"
 #include <random>
 class Game
 {
@@ -50,9 +51,10 @@ private:
 	std::mt19937 rng;
 	std::uniform_int_distribution<int> xDist;
 	std::uniform_int_distribution<int> yDist;
-	static constexpr int size = 59;
+	static constexpr int size = 9;
 	Dude dude;
 	Poo poos[size];
 	bool isStarted = false;
+	Goal goal;
 	/********************************/
 };

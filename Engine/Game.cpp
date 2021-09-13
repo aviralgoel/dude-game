@@ -35,6 +35,7 @@ Game::Game( MainWindow& wnd )
 	{
 		poos[i].Init(xDist(rng), yDist(rng), vDist(rng), vDist(rng));
 	}
+	goal.Init(xDist(rng), yDist(rng));
 }
 
 void Game::Go()
@@ -46,16 +47,23 @@ void Game::Go()
 }
 
 void Game::UpdateModel()
-{
+{	
 	if( isStarted )
 	{
 		dude.Update(wnd.kbd);
 		dude.ClampToScreen();
+		goal.ProcessConsumption(dude);
+		
 
 		for (int i = 0; i < size; i++)
 		{
 			poos[i].Update();
 			poos[i].ProcessConsumption(dude);
+		}
+		if (goal.isTouched)
+		{
+			goal.isTouched = false;
+			goal.Init(xDist(rng), yDist(rng));
 		}
 
 		
@@ -28422,17 +28430,22 @@ void Game::ComposeFrame()
 		DrawTitleScreen( 325,211 );
 	}
 	else
-	{
-		bool allEaten = true;
+	{	
+	
+		bool gameOver = false;
 		for (int i = 0; i < size; i++)
 		{
-				allEaten = allEaten && poos[i].IsEaten();
+				gameOver = gameOver || poos[i].IsEaten();
 		}
-		if(allEaten)
+		if(gameOver)
 		{
 			DrawGameOver( 358,268 );
 		}
+		
+		goal.Draw(gfx);
+		
 		dude.Draw( gfx );
+
 		for (int i = 0; i < size; i++)
 		{
 			if (!poos[i].IsEaten())
